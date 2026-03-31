@@ -10,8 +10,8 @@
       </p>
       <p style="font-size: 16px;">
         <strong style="color: #3ba4ff;">Live :</strong><br>
-        <a href="https://wanderly-travel.vercel.app/" target="_blank" style="color: #2b8ed9; font-weight: bold; text-decoration: none; font-size: 18px;">
-          https://wanderly-travel.vercel.app/
+        <a href="https://wanderly.vercel.app/" target="_blank" style="color: #2b8ed9; font-weight: bold; text-decoration: none; font-size: 18px;">
+          https://wanderly.vercel.app/
         </a>
       </p>
       <p style="font-size: 16px;">
