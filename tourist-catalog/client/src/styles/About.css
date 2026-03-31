@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+.about-page {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  background-color: #fbfbfe;
+  padding-bottom: 4rem;
+}
+
+.about-hero {
+  background-image: url('/public/Wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.top-agency-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.agency-text {
+  flex: 1;
+}
+
+.agency-text h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.agency-text h2 span {
+  color: #3ba4ff;
+}
+
+.agency-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 450px;
+  margin: 0;
+}
+
+.agency-collage {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.collage-main {
+  width: 300px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 160px;
+  position: relative;
+  z-index: 2;
+  border: 6px solid white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.collage-small {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 3;
+  border: 6px solid white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.collage-small.top-right {
+  top: 0;
+  right: 0;
+}
+
+.collage-small.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.features-section-about {
+  padding: 1rem 0;
+}
+
+.features-section-about h2 {
+  font-size: 2.2rem;
+  color: #2f3640;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.about-feature-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.about-feature-card:hover {
+  box-shadow: 0 0 0 2px rgba(59, 164, 255, 0.3), 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.about-feature-icon {
+  font-size: 2.5rem;
+  color: #3ba4ff;
+  margin-bottom: 1.2rem;
+}
+
+.about-feature-card h3 {
+  margin-bottom: 1rem;
+  color: #2f3640;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.about-feature-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.testimonials-box {
+  background: white;
+  border-radius: 20px;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  gap: 3rem;
+}
+
+.testimonials-text {
+  flex: 1;
+}
+
+.testimonials-text h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.testimonials-text h2 span {
+  color: #3ba4ff;
+}
+
+.avatar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatars img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-left: -15px;
+}
+
+.avatars img:first-child {
+  margin-left: 0;
+}
+
+.avatar-count {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #3ba4ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 3px solid white;
+  margin-left: -15px;
+  z-index: 1;
+}
+
+.avatar-group p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.adventure-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.adventure-img {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 100px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border: 6px solid white;
+}
+
+.adventure-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.adventure-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.adventure-info h3 span {
+  color: #3ba4ff;
+}
+
+.adventure-info ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.adventure-info ul li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .top-agency-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .agency-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .agency-description {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .agency-collage {
+    width: 380px;
+    height: 380px;
+  }
+
+  .collage-main {
+    width: 260px;
+    height: 360px;
+    border-width: 5px;
+  }
+
+  .collage-small {
+    width: 130px;
+    height: 130px;
+    border-width: 5px;
+  }
+
+  .testimonials-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .avatars {
+    justify-content: center;
+  }
+
+  .adventure-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .adventure-info ul {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-container {
+    gap: 3rem;
+    padding: 0 16px;
+  }
+
+  .agency-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .agency-description {
+    font-size: 1rem;
+  }
+
+  .agency-collage {
+    width: 320px;
+    height: 320px;
+  }
+
+  .collage-main {
+    width: 220px;
+    height: 300px;
+    border-radius: 120px;
+    border-width: 4px;
+  }
+
+  .collage-small {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
+
+  .features-section-about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-features-grid {
+    gap: 1.5rem;
+  }
+
+  .about-feature-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .testimonials-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .avatar-group {
+    align-items: center;
+  }
+
+  .adventure-img {
+    width: 180px;
+    height: 250px;
+  }
+
+  .adventure-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .adventure-info ul {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-hero {
+    height: 150px;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    gap: 2.5rem;
+  }
+
+  .agency-collage {
+    width: 280px;
+    height: 280px;
+  }
+
+  .collage-main {
+    width: 200px;
+    height: 260px;
+    border-radius: 100px;
+  }
+
+  .collage-small {
+    width: 90px;
+    height: 90px;
+    border-width: 3px;
+  }
+
+  .collage-small.top-right {
+    top: -5px;
+    right: -5px;
+  }
+
+  .collage-small.bottom-left {
+    bottom: -5px;
+    left: -5px;
+  }
+
+  .about-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .testimonials-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .testimonials-text h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .avatars img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .avatar-count {
+    width: 45px;
+    height: 45px;
+    font-size: 0.8rem;
+  }
+
+  .adventure-img {
+    width: 150px;
+    height: 210px;
+  }
+
+  .adventure-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .adventure-info ul {
+    font-size: 0.95rem;
+  }
+
+  .adventure-info ul li {
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .agency-collage {
+    width: 240px;
+    height: 240px;
+  }
+
+  .collage-main {
+    width: 170px;
+    height: 220px;
+  }
+
+  .collage-small {
+    width: 75px;
+    height: 75px;
+  }
+
+  .collage-small.top-right {
+    top: -10px;
+    right: -10px;
+  }
+
+  .collage-small.bottom-left {
+    bottom: -10px;
+    left: -10px;
+  }
+
+  .adventure-img {
+    width: 130px;
+    height: 180px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .about-container {
+    max-width: 1300px;
+  }
+
+  .agency-collage {
+    width: 480px;
+    height: 480px;
+  }
+
+  .collage-main {
+    width: 320px;
+    height: 440px;
+  }
+
+  .collage-small {
+    width: 160px;
+    height: 160px;
+  }
+}

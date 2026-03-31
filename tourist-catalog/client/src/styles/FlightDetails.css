@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.glass-panel.flight-panel-centered {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.flight-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.details-airline-logo {
+  height: 40px;
+  object-fit: contain;
+  background: #fff;
+  padding: 5px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.passenger-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-group.full-width {
+  grid-column: span 2;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+  font-size: 14px;
+}
+
+.flight-custom-input {
+  width: 100%;
+  background-color: #eee;
+  border: none;
+  padding: 14px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+  color: #333;
+}
+
+.flight-custom-input:focus {
+  box-shadow: 0 0 0 2px rgba(59, 164, 255, 0.3);
+  background-color: #fff;
+}
+
+select.flight-custom-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px top 50%;
+  background-size: 12px auto;
+  padding-right: 40px;
+}
+
+.blue-btn {
+  background-color: #3ba4ff;
+  color: #fff;
+  font-size: 13px;
+  padding: 14px 30px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+}
+
+.blue-btn:hover:not(:disabled) {
+  background-color: #2b8ed9;
+  box-shadow: 0 4px 12px rgba(59, 164, 255, 0.4);
+}
+
+.booking-btn {
+  width: 100%;
+  font-size: 15px;
+  padding: 16px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: slideUp 0.4s ease;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.modal-content p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .glass-panel.flight-panel-centered {
+    max-width: 90%;
+  }
+  .flight-details-header {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-panel.flight-panel-centered {
+    padding: 1.5rem;
+  }
+  .passenger-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .input-group.full-width {
+    grid-column: span 1;
+  }
+  .flight-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .details-airline-logo {
+    align-self: flex-start;
+  }
+  .blue-btn {
+    padding: 12px 25px;
+    font-size: 12px;
+  }
+  .booking-btn {
+    font-size: 13px;
+    padding: 14px;
+  }
+  .modal-content {
+    padding: 30px 20px;
+    width: 85%;
+  }
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+  .modal-content p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .glass-panel.flight-panel-centered {
+    padding: 1rem;
+  }
+  .flight-custom-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .input-group label {
+    font-size: 12px;
+  }
+  .blue-btn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+  .booking-btn {
+    font-size: 12px;
+  }
+  .details-info-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .info-group {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

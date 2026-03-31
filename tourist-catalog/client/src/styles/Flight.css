@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.flight-page {
+  min-height: calc(100vh - 80px);
+  background-color: #fcfcfc;
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 4rem;
+}
+
+.flight-hero {
+  background-image: url('/public/Wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flight-hero h1 {
+  font-size: 3rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.flight-search-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.flight-form {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.input-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.flight-input {
+  width: 100%;
+  padding: 14px 15px;
+  background-color: #eee;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  outline: none;
+  color: #333;
+}
+
+.flight-input:focus {
+  background-color: #fff;
+  border: 2px solid #3ba4ff;
+  box-shadow: 0 0 8px rgba(59, 164, 255, 0.2);
+}
+
+.flight-btn {
+  background-color: #3ba4ff;
+  color: #fff;
+  font-size: 13px;
+  padding: 14px 30px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+.flight-btn:hover:not(:disabled) {
+  background-color: #2b8ed9;
+  box-shadow: 0 4px 12px rgba(59, 164, 255, 0.4);
+}
+
+.flight-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-group {
+  display: flex;
+  align-items: flex-end;
+}
+
+.empty-flight-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.empty-flight-content {
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 650px;
+  padding: 3rem 2.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.empty-flight-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.empty-flight-content h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.empty-flight-content p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .flight-hero {
+    height: 200px;
+  }
+  .flight-hero h1 {
+    font-size: 2.5rem;
+  }
+  .flight-search-container {
+    padding: 25px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flight-hero {
+    height: 180px;
+  }
+  .flight-hero h1 {
+    font-size: 2rem;
+  }
+  .flight-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .input-group {
+    width: 100%;
+    min-width: auto;
+  }
+  .flight-search-container {
+    padding: 20px;
+    margin: 20px 16px;
+  }
+  .empty-flight-content {
+    padding: 2rem 1.5rem;
+    max-width: 90%;
+  }
+  .empty-flight-content h2 {
+    font-size: 1.5rem;
+  }
+  .empty-flight-content p {
+    max-width: 100%;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .flight-hero {
+    height: 150px;
+  }
+  .flight-hero h1 {
+    font-size: 1.6rem;
+  }
+  .flight-search-container {
+    padding: 16px;
+    margin: 20px 12px;
+  }
+  .flight-input {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+  .flight-btn {
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+  .empty-flight-img {
+    max-width: 280px;
+  }
+  .empty-flight-content h2 {
+    font-size: 1.3rem;
+  }
+}
