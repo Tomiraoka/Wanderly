@@ -48,7 +48,7 @@ const Auth = () => {
 
         <div className="auth-logo">
           <img 
-            src="/public/Wanderly.png" 
+            src="/Wanderly.png" 
             alt="Wanderly Logo" 
             className="logo-img"
           />
