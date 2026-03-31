@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import FlightCard from '../components/FlightCard/FlightCard';
 import Loader from '../components/Loader/Loader';
 import toast from 'react-hot-toast';
-import '../styles/Flight.css'; 
+import { buildApiUrl } from '../config/api';
+import '../styles/Flight.css';
 
 const Flight = () => {
-  const [departure, setDeparture] = useState('ALA'); 
-  const [destination, setDestination] = useState('NQZ'); 
+  const [departure, setDeparture] = useState('ALA');
+  const [destination, setDestination] = useState('NQZ');
   const [date, setDate] = useState('');
-  
+
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -31,12 +32,12 @@ const Flight = () => {
     { code: 'PPK', name: 'Петропавловск' },
     { code: 'KOV', name: 'Кокшетау' },
     { code: 'TDK', name: 'Талдыкорган' },
-    { code: 'DZN', name: 'Жезказган' }
+    { code: 'DZN', name: 'Жезказган' },
   ];
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    
+
     if (!destination) {
       toast.error('Пожалуйста, укажите код аэропорта прибытия');
       return;
@@ -46,7 +47,8 @@ const Flight = () => {
     setHasSearched(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/flights/search?origin=${departure}&dest=${destination}`);
+      const url = `${buildApiUrl('/flights/search')}?origin=${departure}&dest=${destination}&date=${date}`;
+      const response = await fetch(url);
       const data = await response.json();
 
       if (response.ok) {
@@ -65,35 +67,34 @@ const Flight = () => {
 
   return (
     <div className="flight-page">
-
       <div className="flight-hero">
         <h1>Авиабилеты</h1>
       </div>
 
       <div className="container">
-
         <div className="flight-search-container">
           <form onSubmit={handleSearch} className="flight-form">
-            
             <div className="input-group">
               <label>Откуда (Казахстан):</label>
-              <select 
+              <select
                 className="flight-input"
-                value={departure} 
+                value={departure}
                 onChange={(e) => setDeparture(e.target.value)}
               >
-                {kzAirports.map(port => (
-                  <option key={port.code} value={port.code}>{port.name} ({port.code})</option>
+                {kzAirports.map((port) => (
+                  <option key={port.code} value={port.code}>
+                    {port.name} ({port.code})
+                  </option>
                 ))}
               </select>
             </div>
 
             <div className="input-group">
               <label>Куда (Код аэропорта):</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="flight-input"
-                value={destination} 
+                value={destination}
                 onChange={(e) => setDestination(e.target.value.toUpperCase())}
                 placeholder="Например: DXB, IST"
                 maxLength="3"
@@ -104,10 +105,10 @@ const Flight = () => {
 
             <div className="input-group">
               <label>Дата (Опционально):</label>
-              <input 
-                type="date" 
+              <input
+                type="date"
                 className="flight-input"
-                value={date} 
+                value={date}
                 onChange={(e) => setDate(e.target.value)}
                 min={new Date().toISOString().split('T')[0]}
               />
@@ -118,7 +119,6 @@ const Flight = () => {
                 {loading ? 'ПОИСК...' : 'НАЙТИ БИЛЕТЫ'}
               </button>
             </div>
-
           </form>
         </div>
 
@@ -128,14 +128,25 @@ const Flight = () => {
           ) : hasSearched && flights.length === 0 ? (
             <div className="empty-flight-wrapper">
               <div className="empty-flight-content">
-                <img src="/NoTours.png" alt="Рейсы не найдены" className="empty-flight-img" />
+                <img
+                  src="/NoTours.png"
+                  alt="Рейсы не найдены"
+                  className="empty-flight-img"
+                />
                 <h2>Рейсы не найдены</h2>
-                <p>Попробуйте выбрать другое направление. Возможно, на данный момент нет запланированных рейсов по этому маршруту.</p>
+                <p>
+                  Попробуйте выбрать другое направление. Возможно, на данный
+                  момент нет запланированных рейсов по этому маршруту.
+                </p>
               </div>
             </div>
           ) : (
             <div className="flights-list">
-              {flights.length > 0 && <h2 style={{ marginBottom: '20px', color: '#333' }}>Найденные рейсы:</h2>}
+              {flights.length > 0 && (
+                <h2 style={{ marginBottom: '20px', color: '#333' }}>
+                  Найденные рейсы:
+                </h2>
+              )}
               {flights.map((flight, index) => (
                 <FlightCard key={index} flight={flight} />
               ))}

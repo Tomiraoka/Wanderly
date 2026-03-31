@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:5000/api/blogs';
+import { buildApiUrl } from '../config/api';
+
+const API_URL = buildApiUrl('/blogs');
 
 export const getBlogs = async () => {
   const response = await fetch(API_URL);
@@ -13,21 +15,32 @@ export const getBlogById = async (id) => {
 };
 
 export const createBlog = async (formData) => {
-  const response = await fetch(API_URL, { method: 'POST', body: formData });
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    body: formData,
+  });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка создания поста');
   return data;
 };
 
 export const updateBlog = async (id, formData) => {
-  const response = await fetch(`${API_URL}/${id}`, { method: 'PUT', body: formData });
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: 'PUT',
+    body: formData,
+  });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка обновления поста');
   return data;
 };
 
 export const deleteBlog = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: 'DELETE',
+  });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка удаления поста');
   return data;
@@ -39,6 +52,7 @@ export const addComment = async (blogId, userId, text) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userId, text }),
   });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка добавления комментария');
   return data;

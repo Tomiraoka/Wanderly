@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { buildApiUrl } from '../config/api';
 
 const AuthContext = createContext();
 
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = 'http://localhost:5000/api/auth';
+  const API_URL = buildApiUrl('/auth');
 
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
@@ -34,7 +35,9 @@ export const AuthProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
+
       const data = await response.json();
+
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', data.token);
@@ -58,7 +61,9 @@ export const AuthProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
       });
+
       const data = await response.json();
+
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', data.token);
@@ -77,6 +82,7 @@ export const AuthProvider = ({ children }) => {
 
   const uploadAvatar = async (file) => {
     if (!user) return false;
+
     const formData = new FormData();
     formData.append('userId', user._id);
     formData.append('avatar', file);
@@ -86,7 +92,9 @@ export const AuthProvider = ({ children }) => {
         method: 'POST',
         body: formData,
       });
+
       const data = await response.json();
+
       if (response.ok) {
         localStorage.setItem('user', JSON.stringify(data));
         setUser(data);
@@ -122,6 +130,9 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(updatedUser));
         setUser(updatedUser);
         return true;
+      } else {
+        toast.error(data.message || 'Ошибка обновления избранного');
+        return false;
       }
     } catch (error) {
       toast.error('Ошибка обновления избранного');
@@ -137,7 +148,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const value = {
-    user, loading, login, register, logout, uploadAvatar, toggleFavorite
+    user,
+    loading,
+    login,
+    register,
+    logout,
+    uploadAvatar,
+    toggleFavorite,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

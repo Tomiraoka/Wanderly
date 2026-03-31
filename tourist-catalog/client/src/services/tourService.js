@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:5000/api/tours';
+import { buildApiUrl } from '../config/api';
+
+const API_URL = buildApiUrl('/tours');
 
 export const getTours = async () => {
   const response = await fetch(API_URL);
@@ -15,8 +17,9 @@ export const getTourById = async (id) => {
 export const createTour = async (formData) => {
   const response = await fetch(API_URL, {
     method: 'POST',
-    body: formData, 
+    body: formData,
   });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка создания тура');
   return data;
@@ -27,6 +30,7 @@ export const updateTour = async (id, formData) => {
     method: 'PUT',
     body: formData,
   });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка обновления тура');
   return data;
@@ -36,6 +40,7 @@ export const deleteTour = async (id) => {
   const response = await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
   });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка удаления тура');
   return data;
@@ -47,6 +52,7 @@ export const addComment = async (tourId, userId, text) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ userId, text }),
   });
+
   const data = await response.json();
   if (!response.ok) throw new Error(data.message || 'Ошибка добавления комментария');
   return data;
