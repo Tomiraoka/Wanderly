@@ -56,3 +56,69 @@ The project was created to practice full-stack modern web development, featuring
 - **Node.js / Express** – RESTful backend API.
 - **MongoDB** – NoSQL database for storing users, tours, blogs, and reviews.
 - **EmailJS** – Automated transactional emails for bookings and tickets.
+
+# ✈️ External Services Integration
+
+## Aviationstack API (Flight Data)
+
+![Image](https://aviationstack.com/images/logos/aviationstack_main_logo.svg)
+
+![Image](https://media.licdn.com/dms/image/v2/D5622AQGreukgmsmdZw/feedshare-shrink_800/feedshare-shrink_800/0/1714808012803?e=2147483647\&t=xnb-V9XCc-ryhngrUgQUaRiX4Zzyb24qkDfN9zfNzTY\&v=beta)
+
+![Image](https://cms-assets.tutsplus.com/cdn-cgi/image/width%3D850/uploads/users/321/posts/36709/image-upload/front.PNG)
+
+![Image](https://cms-assets.tutsplus.com/cdn-cgi/image/width%3D800/uploads/users/321/posts/36709/image-upload/sample%20json.png)
+
+Wanderly integrates the **Aviationstack API** to provide real-time flight information.
+
+### 🔹 Capabilities:
+
+* Live flight search by route
+* Airline and airport data
+* Departure and arrival tracking
+
+### 🔹 Example request:
+
+```js
+http://api.aviationstack.com/v1/flights?access_key=YOUR_API_KEY
+```
+
+---
+
+## 📧 EmailJS (Client-side Email Service)
+
+![Image](https://www.emailjs.com/logo.png)
+
+![Image](https://d585tldpucybw.cloudfront.net/sfimages/default-source/blogs/2023/2023-01/emailjs-select-service.png?sfvrsn=50cdf613_3)
+
+![Image](https://blog.openreplay.com/images/sending-emails-from-react-with-emailjs/images/image08.png)
+
+![Image](https://media2.dev.to/dynamic/image/width%3D1000%2Cheight%3D420%2Cfit%3Dcover%2Cgravity%3Dauto%2Cformat%3Dauto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frcxd2g2jq1e63ak7m0ww.jpg)
+
+The project uses **EmailJS** to send emails directly from the frontend without a backend mail server.
+
+### 🔹 Use cases:
+
+* Booking confirmations
+* Ticket notifications
+* Contact form messages
+
+### 🔹 Example usage:
+
+```js
+emailjs.send(serviceID, templateID, params, publicKey)
+```
+
+---
+
+## 🔐 Environment Variables
+
+```env
+# Client
+VITE_API_URL=your_backend_url
+VITE_EMAILJS_PUBLIC_KEY=your_key
+
+# Server
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+AVIATIONSTACK_API_KEY=your_api_key
